@@ -1,0 +1,33 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Agent {
+  id          String    @id @default(cuid())
+  name        String    @unique
+  description String?
+  endpoint    String
+  authHeader  String?   // full header value e.g. "Bearer sk-..."
+  tags        String    @default("[]") // JSON array of strings
+  active      Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  callLogs    CallLog[]
+}
+
+model CallLog {
+  id         String   @id @default(cuid())
+  agentId    String
+  agent      Agent    @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  tool       String
+  args       String   // JSON
+  result     String?  // JSON
+  error      String?
+  durationMs Int?
+  calledAt   DateTime @default(now())
+}

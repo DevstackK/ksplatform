@@ -1,0 +1,145 @@
+{
+  "mcpServers": {
+
+    "_SECTION_npm_based": {
+      "command": "echo",
+      "args": ["Official and community npm MCP servers — verified package names below"]
+    },
+
+    "github": {
+      "command": "docker",
+      "args": [
+        "run", "-i", "--rm",
+        "-e", "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "ghcr.io/github/github-mcp-server:latest"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+
+    "vercel": {
+      "command": "npx",
+      "args": ["-y", "@vercel/mcp-adapter@0.3.2", "stdio"],
+      "env": {
+        "VERCEL_TOKEN": "${VERCEL_TOKEN}"
+      }
+    },
+
+    "netlify": {
+      "command": "npx",
+      "args": ["-y", "@netlify/mcp@1.15.1"],
+      "env": {
+        "NETLIFY_TOKEN": "${NETLIFY_TOKEN}"
+      }
+    },
+
+    "stripe": {
+      "command": "npx",
+      "args": ["-y", "@stripe/agent-toolkit@0.9.0", "mcp"],
+      "env": {
+        "STRIPE_SECRET_KEY": "${STRIPE_SECRET_KEY}"
+      }
+    },
+
+    "paypal": {
+      "command": "npx",
+      "args": ["-y", "@paypal/mcp@1.8.1"],
+      "env": {
+        "PAYPAL_CLIENT_ID": "${PAYPAL_CLIENT_ID}",
+        "PAYPAL_CLIENT_SECRET": "${PAYPAL_CLIENT_SECRET}"
+      }
+    },
+
+    "heygen": {
+      "command": "npx",
+      "args": ["-y", "heygen-mcp-server@1.1.0"],
+      "env": {
+        "HEYGEN_API_KEY": "${HEYGEN_TOKEN}"
+      }
+    },
+
+    "lucid": {
+      "command": "npx",
+      "args": ["-y", "lucid-mcp-server@0.1.5"],
+      "env": {
+        "LUCID_TOKEN": "${LUCID_TOKEN}"
+      }
+    },
+
+    "atlassian": {
+      "command": "npx",
+      "args": ["-y", "atlassian-mcp@0.1.5"],
+      "env": {
+        "ATLASSIAN_TOKEN": "${ATLASSIAN_TOKEN}",
+        "ATLASSIAN_EMAIL": "${ATLASSIAN_EMAIL}",
+        "ATLASSIAN_BASE_URL": "${ATLASSIAN_BASE_URL}"
+      }
+    },
+
+    "microsoft-365": {
+      "command": "npx",
+      "args": ["-y", "microsoft-mcp-server@0.1.0"],
+      "env": {
+        "MICROSOFT_TENANT_ID": "${MICROSOFT_TENANT_ID}",
+        "MICROSOFT_CLIENT_ID": "${MICROSOFT_CLIENT_ID}",
+        "MICROSOFT_CLIENT_SECRET": "${MICROSOFT_CLIENT_SECRET}"
+      }
+    },
+
+    "_SECTION_http_based": {
+      "command": "echo",
+      "args": ["HTTP/SSE MCP servers — fill in URL from each provider's developer docs"]
+    },
+
+    "google-workspace": {
+      "type": "sse",
+      "url": "REPLACE_WITH_GOOGLE_MCP_ENDPOINT",
+      "headers": {
+        "Authorization": "Bearer ${GOOGLE_REFRESH_TOKEN}"
+      }
+    },
+
+    "canva": {
+      "type": "sse",
+      "url": "REPLACE_WITH_CANVA_MCP_ENDPOINT",
+      "headers": {
+        "Authorization": "Bearer ${CANVA_TOKEN}"
+      }
+    },
+
+    "adobe": {
+      "type": "sse",
+      "url": "REPLACE_WITH_ADOBE_MCP_ENDPOINT",
+      "headers": {
+        "Authorization": "Bearer ${ADOBE_CLIENT_SECRET}",
+        "x-api-key": "${ADOBE_CLIENT_ID}"
+      }
+    },
+
+    "miro": {
+      "type": "sse",
+      "url": "REPLACE_WITH_MIRO_MCP_ENDPOINT",
+      "headers": {
+        "Authorization": "Bearer ${MIRO_TOKEN}"
+      }
+    },
+
+    "descript": {
+      "type": "sse",
+      "url": "REPLACE_WITH_DESCRIPT_MCP_ENDPOINT",
+      "headers": {
+        "Authorization": "Bearer ${DESCRIPT_TOKEN}"
+      }
+    },
+
+    "docusign": {
+      "type": "sse",
+      "url": "REPLACE_WITH_DOCUSIGN_MCP_ENDPOINT",
+      "headers": {
+        "Authorization": "Bearer ${DOCUSIGN_TOKEN}",
+        "x-account-id": "${DOCUSIGN_ACCOUNT_ID}"
+      }
+    }
+  }
+}
