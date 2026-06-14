@@ -17,9 +17,12 @@ LUCID_TOKEN, MIRO_TOKEN, ADOBE_CLIENT_ID, ADOBE_CLIENT_SECRET, DESCRIPT_TOKEN
 - Use for collaborative work where clients or teams need to edit too
 - Always share a view link when done
 
-### Adobe (Firefly / Photoshop / Express)
-- Image generation, background removal, photo editing, asset creation
-- Use for high-quality marketing imagery where Canva templates aren't sufficient
+### Adobe Express (ADOBE_CLIENT_ID / ADOBE_CLIENT_SECRET)
+- Quick social media creatives, branded templates, resizing assets
+
+### Adobe Firefly / Photoshop API (ADOBE_FIREFLY_CLIENT_ID / ADOBE_FIREFLY_CLIENT_SECRET)
+- AI image generation, background removal, photo editing, asset creation
+- Use for high-quality marketing imagery where Canva or Express aren't sufficient
 
 ### Descript
 - Video editing by transcript editing (trim, rearrange, remove filler words)
