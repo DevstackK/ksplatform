@@ -1,4 +1,5 @@
 import { listAgents, getCallLogs } from '@/lib/registry';
+import KeyGenerator from '@/app/components/KeyGenerator';
 
 export const dynamic = 'force-dynamic';
 
@@ -43,6 +44,8 @@ export default async function DashboardPage() {
         <p className="text-xs text-gray-600 mt-2">Add this to your Claude Code .mcp.json — see <a href="/docs/api" className="text-blue-400 hover:underline">API Docs</a></p>
       </div>
 
+      <KeyGenerator />
+
       <div>
         <h2 className="text-sm font-semibold text-gray-300 mb-3">Recent Calls</h2>
         {logs.length === 0 ? (
@@ -53,7 +56,7 @@ export default async function DashboardPage() {
               <div key={log.id} className="bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 flex items-center justify-between">
                 <div>
                   <span className="text-sm text-white">{log.agent.name}</span>
-                  <span className="text-gray-600 mx-2">→</span>
+                  <span className="text-gray-600 mx-2">&#8594;</span>
                   <span className="text-sm text-blue-400">{log.tool}</span>
                 </div>
                 <div className="flex items-center gap-3">
